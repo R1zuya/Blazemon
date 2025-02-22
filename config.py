@@ -1,10 +1,7 @@
-import logging
 import os
+from dotenv import load_dotenv
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+load_dotenv()
 
-TOKEN = os.environ.get("7972422177:AAGTkCgvKuYLu16qdzB1LrnidxvKwB1n93E")  # Use environment variable for token
-if not TOKEN:
-    print("TELEGRAM_BOT_TOKEN environment variable not set. Please set it.")
-    exit()
+TOKEN = os.getenv("7972422177:AAGTkCgvKuYLu16qdzB1LrnidxvKwB1n93E")
+POKEMON_API_URL = "https://pokeapi.co/api/v2/"
