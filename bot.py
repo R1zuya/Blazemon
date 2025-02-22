@@ -1,15 +1,13 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, CallbackContext
-
-TOKEN = "YOUR_BOT_TOKEN_HERE"
-
-async def start(update: Update, context: CallbackContext) -> None:
-    await update.message.reply_text("Welcome to the Pokémon Bot!")
+from telegram.ext import Application
+from config import TOKEN
+from handlers.start import start_command
+from handlers.hunt import hunt_command
 
 def main():
     app = Application.builder().token(TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    
+    app.add_handler(start_command)
+    app.add_handler(hunt_command)
+
     print("Bot is running...")
     app.run_polling()
 
